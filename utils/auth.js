@@ -9,11 +9,13 @@ export async function handleAuthSSR(ctx) {
     const token = ctx.req.signedCookies.token;
 
     try {
-      const responseCheckToken = await axios.post('http://localhost:3001/ping', {}, {
+      const responseCheckToken = await axios.get('http://localhost:3001/api/ping', {
         headers: {
           'authorization': token,
         },
       });
+
+      console.log('responseCheckToken', responseCheckToken.status);
 
       if (!responseCheckToken.status === 200) {
         res.writeHead(301, {
