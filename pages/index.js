@@ -1,12 +1,9 @@
 import {
-  Layout,
   Navbar,
 } from '@containers';
 
 const Home = () => (
-  <Layout>
-    <Navbar />
-  </Layout>
+  <Navbar />
 );
 
 export default Home;
